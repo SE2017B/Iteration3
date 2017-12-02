@@ -20,13 +20,16 @@ import java.util.ArrayList;
 //import java.mail.internet.*;
 
 public class DepartmentSubsystem {
-//    private boolean initRan = false;
-    ArrayList<Department> departments = new ArrayList<Department>();
     private Staff currentlyLoggedIn = null;
-//    private static int count = 0;
-
-    ArrayList<Service> services = new ArrayList<Service>();
+    ArrayList<Staff> admin;
+    private boolean isAdmin;
+    ArrayList<Service> services;
     private static int count = 0;
+
+    // private boolean initRan = false;
+    //ArrayList<Department> departments = new ArrayList<Department>();
+    // private static int count = 0;
+
     /**
      * The order of method calls should be this for DSS:
      * Login - The user submits their credentials, and we check if they have a matching pair
@@ -43,33 +46,33 @@ public class DepartmentSubsystem {
         //if(initRan){ return; }
 
         //TODO assign staff to departments and services
-        Department translationDepartment = new Department("Translation Department");
+       /// Department translationDepartment = new Department("Translation Department");
         Service translation = new Translation("Translation service");
         translation.setURL("/fxml/Translation.fxml");
         services.add(translation);
-        translationDepartment.addService(translation);
-        departments.add(translationDepartment);
+        //translationDepartment.addService(translation);
+        //departments.add(translationDepartment);
 
-        Department transportationDepartment = new Department("Transportation Department");
+       // Department transportationDepartment = new zzz("Transportation Department");
         Service transport = new Transport("Transport service");
         transport.setURL("/fxml/Transport.fxml");
         services.add(transport);
-        transportationDepartment.addService(transport);
-        departments.add(transportationDepartment);
+       // transportationDepartment.addService(transport);
+        //departments.add(transportationDepartment);
 
-        Department facilities = new Department("Facilities");
+       // Department facilities = new Department("Facilities");
         Service sanitation = new Sanitation("Sanitation");
         sanitation.setURL("/fxml/Sanitation.fxml");
         services.add(sanitation);
-        facilities.addService(sanitation);
-        departments.add(facilities);
+        //facilities.addService(sanitation);
+        //departments.add(facilities);
 
-        Department food = new Department("Food");
+       // Department food = new Department("Food");
         Service foodDelivery = new FoodDelivery("Food Delivery Service");
         foodDelivery.setURL("/fxml/FoodDelivery.fxml");
         services.add(foodDelivery);
-        food.addService(foodDelivery);
-        departments.add(food);
+       // food.addService(foodDelivery);
+       // departments.add(food);
 
         //Comment this out if you want to use test
         staffPlacement();
@@ -136,15 +139,19 @@ public class DepartmentSubsystem {
         return false;
     }
 
-    //Getters
-    public Department getDepartment(String departmentName){
-        for(Department d: this.departments){
-            if(d.toString().equals(departmentName)){
-                return d;
-            }
-        }
-        return null;
+    public Staff getCurrentLoggedIn(){
+        return this.currentlyLoggedIn;
     }
+
+//    //Getters
+//    public Department getDepartment(String departmentName){
+//        for(Department d: this.departments){
+//            if(d.toString().equals(departmentName)){
+//                return d;
+//            }
+//        }
+//        return null;
+//    }
 //    public ArrayList<Service> getServices(String department){
 //        //This method should return new services every time, to make sure that the specific service is not reused
 //        ArrayList<Service> returnList = new ArrayList<Service>();
@@ -167,22 +174,21 @@ public class DepartmentSubsystem {
 //        return returnList;
 //    }
 
-    public Staff getCurrentLoggedIn(){
-        return this.currentlyLoggedIn;
-    }
-    public ArrayList<Service> getAllServices(){
-        ArrayList<Service> allServices = new ArrayList<Service>();
-        for(Department dept: this.getDepartments()){
-            allServices.addAll(dept.getServices());
-        }
-        return allServices;
-    }
-    public ArrayList<Department> getDepartments() {
-        return departments;
-    }
-    public ArrayList<Staff> getStaff(Service service){
-        return service.getStaff();
-    }
+
+
+//    public ArrayList<Service> getAllServices(){
+//        ArrayList<Service> allServices = new ArrayList<Service>();
+//        for(Department dept: this.getDepartments()){
+//            allServices.addAll(dept.getServices());
+//        }
+//        return allServices;
+//    }
+//    public ArrayList<Department> getDepartments() {
+//        return departments;
+//    }
+//    public ArrayList<Staff> getStaff(Service service){
+//        return service.getStaff();
+//    }
 //    public ArrayList<Staff> getStaff(String service){
 //        for(Department dept: this.departments) {
 //            ArrayList<Service> temp = dept.getServices();
@@ -267,5 +273,9 @@ public class DepartmentSubsystem {
         ser.removeEligibleStaff(person);
 
         staffDatabase.deleteStaff(person);
+    }
+
+    private boolean isAdmin(){
+        return isAdmin;
     }
 }
