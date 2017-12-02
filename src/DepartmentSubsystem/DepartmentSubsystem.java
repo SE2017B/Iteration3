@@ -8,6 +8,8 @@
 
 package DepartmentSubsystem;
 
+import DepartmentSubsystem.Exceptions.PasswordException;
+import DepartmentSubsystem.Exceptions.UsernameException;
 import DepartmentSubsystem.Services.FoodDelivery;
 import DepartmentSubsystem.Services.Sanitation;
 import DepartmentSubsystem.Services.Translation;
@@ -20,13 +22,15 @@ import java.util.HashMap;
 public class DepartmentSubsystem {
     private Staff currentlyLoggedIn = null;
     ArrayList<Service> services;
-    private HashMap<String, String>
     //Admins cannot perform a service, so they are stored outside of the services
     ArrayList<Staff> admin;
+    private HashMap<String, String> loginCheck;
 
     private static DepartmentSubsystem singleton;
     private DepartmentSubsystem(){init();}
     private void init(){
+        populateLoginCheck(staffDatabase.getStaff());
+
         Service translation = new Translation("Translation");
         translation.setURL("/fxml/Translation.fxml");
         services.add(translation);
@@ -45,6 +49,17 @@ public class DepartmentSubsystem {
         services.add(foodDelivery);
 
         staffPlacement();
+    }
+
+    private void populateLoginCheck(ArrayList<Staff> members){
+        this.loginCheck = new HashMap<>();
+        for(Staff person: members){
+            loginCheck.put(person.getUsername(), person.getPassword());
+            if(person.isAdmin()){
+                this.admin.add(person);
+            }
+        }
+
     }
 
     //Reads the DB, and puts the staff in their corresponding places
@@ -82,21 +97,14 @@ public class DepartmentSubsystem {
     }
 
     //login function for staff members
-    public boolean login(String username, String password){
-        System.out.println("we made it");
-        ArrayList<Staff> allStaff = staffDatabase.getStaff();
-        for(Staff member: allStaff){
-            System.out.println(member.getUsername() + " == "+ username );
-            if(member.getUsername().equals(username)){
-                if(member.getPassword().equals(password)){
-                    this.currentlyLoggedIn = member;
-                    return true;
-                }
-                else
-                    break;
-            }
+    public boolean login(String username, String password) throws UsernameException,  PasswordException {
+        if(!this.loginCheck.containsKey(username)){
+            throw new UsernameException();
         }
-        return false;
+        if(!this.loginCheck.get(username).equals(password)){
+            throw new PasswordException();
+        }
+        return true;
     }
 
     public Staff getCurrentLoggedIn(){
@@ -104,15 +112,15 @@ public class DepartmentSubsystem {
     }
 
     //Staff modifiers
-    public void addStaff(Service ser,String username, String password, String jobTitle, String fullName, int id){
+    public void addStaff(Service ser,String username, String password, String jobTitle, String fullName, int id, int admin){
         //staffDatabase.setStaffCounter(1);
-        Staff newPerson = new Staff(username, password, jobTitle, fullName, id);
+        Staff newPerson = new Staff(username, password, jobTitle, fullName, id, admin);
         ser.addEligibleStaff(newPerson);
         staffDatabase.addStaff(newPerson);
     }
 
     public void modifyStaff(Staff person, String username, String password, String jobTitle, String fullName, int ID){
-        person.setNewVars(username, password, jobTitle, fullName, ID);
+        person.updateCredidentials(username, password, jobTitle, fullName, ID);
         staffDatabase.modifyStaff(person);
     }
 
