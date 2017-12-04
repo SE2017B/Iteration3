@@ -1,4 +1,3 @@
-/*
 package DepartmentSubsystem.Services.Controllers;
 
 import DepartmentSubsystem.Services.Translation;
@@ -11,7 +10,7 @@ public class TranslationController extends CurrentServiceController {
 
     @Override
     public void onShow(){
-       languageChoiceBox.setItems(FXCollections.observableList(((Translation)(DSS.getDepartment("Translation Department").getServices().get(0))).getLanguages()));
+       languageChoiceBox.setItems(FXCollections.observableList(((Translation)(DSS.getServices().get(0))).getLanguages()));
     }
 
 
@@ -26,4 +25,3 @@ public class TranslationController extends CurrentServiceController {
         return inputData;
     }
 }
-*/

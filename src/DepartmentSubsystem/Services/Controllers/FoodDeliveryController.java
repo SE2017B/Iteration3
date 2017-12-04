@@ -1,4 +1,3 @@
-/*
 package DepartmentSubsystem.Services.Controllers;
 
 import DepartmentSubsystem.Services.FoodDelivery;
@@ -8,11 +7,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 
 public class FoodDeliveryController extends CurrentServiceController {
-    private
 
     @Override
     public void onShow(){
-        foodChoiceBox.setItems(FXCollections.observableList(((FoodDelivery)((DSS.getDepartment("Food").getServices().get(0)))).getMenuItems()));
+        foodChoiceBox.setItems(FXCollections.observableList(((FoodDelivery)((DSS.getServices().get(3)))).getMenuItems()));
     }
 
     @FXML
@@ -27,4 +25,3 @@ public class FoodDeliveryController extends CurrentServiceController {
     }
 
 }
-*/

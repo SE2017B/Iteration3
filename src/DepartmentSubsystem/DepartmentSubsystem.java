@@ -12,6 +12,7 @@ import DepartmentSubsystem.Exceptions.EmailFormatException;
 import DepartmentSubsystem.Exceptions.PasswordException;
 import DepartmentSubsystem.Exceptions.UsernameException;
 import DepartmentSubsystem.Services.FoodDelivery;
+import DepartmentSubsystem.Services.Transportation;
 import DepartmentSubsystem.Services.Sanitation;
 import DepartmentSubsystem.Services.Translation;
 import database.staffDatabase;
@@ -43,7 +44,7 @@ public class DepartmentSubsystem {
         translation.setURL("/fxml/Translation.fxml");
         services.add(translation);
 
-        Service transport = new Transport("Transportation");
+        Service transport = new Transportation("Transportation");
         transport.setURL("/fxml/Transport.fxml");
         services.add(transport);
 
@@ -116,7 +117,7 @@ public class DepartmentSubsystem {
                     service = translation;
                 }
                 else if(service.getName().equals("Transportation")){
-                    Service transport = new Transport("Transportation");
+                    Service transport = new Transportation("Transportation");
                     transport.setURL("/fxml/Transport.fxml");
                     transport.setStaff(tempList);
                     service = transport;
@@ -176,7 +177,6 @@ public class DepartmentSubsystem {
     public void deleteStaff(Service ser, String userName){
         Staff person = new Staff(userName,null, null,null, 0, 0);
         ser.removeEligibleStaff(person);
-
         staffDatabase.deleteStaff(person);
     }
 
@@ -189,7 +189,7 @@ public class DepartmentSubsystem {
         sendEmail(email, sr.toString());
     }
 
-    public void sendEmail(String toAdress, String message) throws EmailFormatException, MessagingException {
+    public void sendEmail(String toAdress, String messageInput) throws EmailFormatException, MessagingException {
         //TODO processing of the toAdress
         if(toAdress.contains(" ") || !toAdress.contains("@") || !toAdress.contains(".")){
             throw new EmailFormatException();
@@ -205,7 +205,7 @@ public class DepartmentSubsystem {
         String from = "softengteamh@gmail.com";
         String to = toAdress;//some invalid address
         String bounceAddr = "nafajardo15@gmail.com";//change accordingly
-        String body = message;
+        String body = messageInput;
 
         Properties props = new Properties();
 
