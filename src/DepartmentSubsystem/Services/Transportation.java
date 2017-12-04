@@ -11,10 +11,10 @@ package DepartmentSubsystem.Services;
 import DepartmentSubsystem.Service;
 import map.Node;
 
-public class Transport extends Service {
+public class Transportation extends Service {
     private Node endLocation;
 
-    public Transport(String description) {
+    public Transportation(String description) {
         super(description);
     }
 

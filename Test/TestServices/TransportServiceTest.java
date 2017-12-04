@@ -22,8 +22,8 @@
 //
 //    @Before
 //    public void initialize(){
-//        wheelchairJim = new Staff("jim", "abc", "Transport", "Jim Man", 3);
-//        wheelchairMary = new Staff("mary", "abc", "Transport", "Mary Woman", 4);
+//        wheelchairJim = new Staff("jim", "abc", "Transportation", "Jim Man", 3);
+//        wheelchairMary = new Staff("mary", "abc", "Transportation", "Mary Woman", 4);
 //        transports = new ArrayList<>();
 //        service = new TransportService("Wheelchair");
 //    }

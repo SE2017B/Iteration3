@@ -4,7 +4,8 @@
 * Code produced for Iteration1
 * Original author(s): Erica Snow, Vojta Mosby, Tyrone Patterson
 * The following code
-*/
+*//*
+
 
 package kioskEngine;
 
@@ -97,3 +98,4 @@ public class Main extends Application {
         staffDatabase.outputStaffEncCSV();
     }
 }
+*/

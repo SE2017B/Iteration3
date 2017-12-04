@@ -6,6 +6,7 @@
 * The following code
 */
 
+
 package DepartmentSubsystem;
 
 import exceptions.InvalidPasswordException;
@@ -30,6 +31,12 @@ public class Staff{
         this.jobTitle = jobTitle;
         this.fullName = fullName;
         this.ID = ID;
+        if(admin == 1){
+            this.admin = false;
+        }
+        else{
+            this.admin = true;
+        }
 
         //Setting stuff to blanks for now
         workload = new HashMap<Integer, ServiceRequest>();

@@ -20,7 +20,7 @@ public class DepartmentSubsystemTest {
     @Test
     public void testServices(){
         Assert.assertEquals("[translation service]", this.DSS.getDepartments().get(0).getServices().toString());
-        Assert.assertEquals("[Transport service]", this.DSS.getDepartments().get(1).getServices().toString());
+        Assert.assertEquals("[Transportation service]", this.DSS.getDepartments().get(1).getServices().toString());
         Assert.assertEquals("[Sanitation]", this.DSS.getDepartments().get(2).getServices().toString());
         Assert.assertEquals("[Food Delivery Service]", this.DSS.getDepartments().get(3).getServices().toString());
     }

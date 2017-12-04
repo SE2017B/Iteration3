@@ -4,7 +4,8 @@
 * Code produced for Iteration1
 * Original author(s): Travis Norris, Andrey Yuzvik
 * The following code
-*/
+*//*
+
 
 package controllers;
 
@@ -268,9 +269,9 @@ public class RequestController implements ControllableScreen{
 //            //Sets the duration of the session to the service, form the controller
 //            ((Translation)service).setDuration(Integer.parseInt(((TranslationController)this.currentServiceController).getDuration()));
 //        }
-//        else if(service.toString().equalsIgnoreCase("Transport Service")){
+//        else if(service.toString().equalsIgnoreCase("Transportation Service")){
 //            //Sets the end location to the service
-//            ((Transport)service).setEndLocation(((TransportController)this.currentServiceController).returnNode());
+//            ((Transportation)service).setEndLocation(((TransportController)this.currentServiceController).returnNode());
 //        }
 //        else if(service.toString().equalsIgnoreCase("Sanitation")){
 //            ((Sanitation)service).setRequestedService(((SanitationController)this.currentServiceController).getSanSel());
@@ -443,3 +444,4 @@ public class RequestController implements ControllableScreen{
 
 
 }
+*/

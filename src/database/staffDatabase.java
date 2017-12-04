@@ -1,3 +1,4 @@
+/*
 package database;
 
 import DepartmentSubsystem.Staff;
@@ -399,3 +400,4 @@ public class staffDatabase {
         return staffCounter;
     }
 }
+*/

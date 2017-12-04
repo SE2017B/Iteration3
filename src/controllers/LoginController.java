@@ -1,3 +1,4 @@
+/*
 package controllers;
 
 import DepartmentSubsystem.*;
@@ -60,3 +61,4 @@ public class LoginController implements ControllableScreen{
         }
     }
 }
+*/

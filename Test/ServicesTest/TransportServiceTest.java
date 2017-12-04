@@ -19,8 +19,8 @@ public class TransportServiceTest {
 
     @Before
     public void initialize(){
-        wheelchairJim = new Staff("jim", "abc", "Transport", "Jim Man", 3, DepartmentSubsystem);
-        wheelchairMary = new Staff("mary", "abc", "Transport", "Mary Woman", 4,DepartmentSubsystem);
+        wheelchairJim = new Staff("jim", "abc", "Transportation", "Jim Man", 3, DepartmentSubsystem);
+        wheelchairMary = new Staff("mary", "abc", "Transportation", "Mary Woman", 4,DepartmentSubsystem);
         transports = new ArrayList<>();
         DepartmentSubsystem = new TransportService("Wheelchair");
     }

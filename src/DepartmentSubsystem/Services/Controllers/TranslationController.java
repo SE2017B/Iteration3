@@ -1,3 +1,4 @@
+/*
 package DepartmentSubsystem.Services.Controllers;
 
 import DepartmentSubsystem.Services.Translation;
@@ -25,3 +26,4 @@ public class TranslationController extends CurrentServiceController {
         return inputData;
     }
 }
+*/

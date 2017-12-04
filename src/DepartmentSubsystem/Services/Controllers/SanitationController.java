@@ -1,3 +1,4 @@
+/*
 package DepartmentSubsystem.Services.Controllers;
 
 import DepartmentSubsystem.Services.Sanitation;
@@ -21,4 +22,4 @@ public class SanitationController extends CurrentServiceController {
         inputData = "Type: " + sanitationChoiceBox.getValue();
         return inputData;
     }
-}
+}*/
