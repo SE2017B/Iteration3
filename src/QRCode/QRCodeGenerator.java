@@ -70,7 +70,7 @@ public class QRCodeGenerator {
                 }
             }
             try {
-                ImageIO.write(image, "jpg", new File(filename + ".jpg")); // save QR image to disk
+                ImageIO.write(image, "jpg", new File("qr.jpg")); // save QR image to disk
             } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -85,111 +85,111 @@ public class QRCodeGenerator {
         return this.isComplete;
     }
 
-    public static void main(String[] args){
-        QRCodeGenerator gen = new QRCodeGenerator();
-        ArrayList<String> samplelist = new ArrayList<>();
-        //Go straight from Retail C001L1, Take a right at Hallway C009L1, Go down Elevator KL1 until floor L2, Exit Elevator KL2 and
-        //towards Lab C002L2, Take a right at Lab C002L2, Continue straight past  Service C001L2, Stop at Restroom C002L2]
-        samplelist.add("Go straight from Retail C001L1");
-        samplelist.add("Take a right at Hallway C009L1");
-        samplelist.add("Go down Elevator KL1 until floor L2");
-        samplelist.add("Exit Elevator KL2 and continue towards Lab C002L2");
-        samplelist.add("Take a right at Lab C002L2");
-        samplelist.add("Continue straight past  Service C001L2");
-        samplelist.add("Stop at Restroom C002L2");
-
-        samplelist.add("Look forward");
-        samplelist.add("Look back");
-        samplelist.add("Look ahead again");
-        samplelist.add("Fuck okay look at the kiosk I forgot where you are heading");
-        samplelist.add("Nevermind I remembered go forward");
-        samplelist.add("You have arrived dipshit");
-        samplelist.add("Look forward");
-        samplelist.add("Look back");
-        samplelist.add("Look ahea again");
-        samplelist.add("Fuck okay look at the kiosk I forgot where you are heading");
-        samplelist.add("Nevermind I remembered go forward");
-
-        samplelist.add("You have arrived dipshit");
-        samplelist.add("Look forward");
-        samplelist.add("Look back");
-        samplelist.add("Look ahead again");
-        samplelist.add("Fuck okay look at the kiosk I forgot where you are heading");
-        samplelist.add("Nevermind I remembered go forward");
-        samplelist.add("You have arrived dipshit");
-        samplelist.add("Look forward");
-        samplelist.add("Look back");
-        samplelist.add("Look ahead again");
-
-        samplelist.add("Fuck okay look at the kiosk I forgot where you are heading");
-        samplelist.add("Nevermind I remembered go forward");
-        samplelist.add("LASTLINE HEHHEHHEHHE");
-        samplelist.add("Look forward");
-        samplelist.add("Look back");
-        samplelist.add("Look ahead again");
-        samplelist.add("HELLO THIS IS TESTING THE MAX LINE LIMIT");
-        samplelist.add("Look forward");
-        samplelist.add("Look forward");
-        samplelist.add("Look forward");
-
-        samplelist.add("Look forward");
-        samplelist.add("Look forward");
-        samplelist.add("LAST LINE AGAIN - This is the end of 1");
-        samplelist.add("Look forward - beginning of 2");
-        samplelist.add("Look back");
-        samplelist.add("Look ahead again");
-        samplelist.add("Fuck okay look at the kiosk I forgot where you are heading");
-        samplelist.add("Nevermind I remembered go forward");
-        samplelist.add("You have arrived dipshit");
-        samplelist.add("Look forward");
-
-        samplelist.add("Look back");
-        samplelist.add("Look ahead again");
-        samplelist.add("Fuck okay look at the kiosk I forgot where you are heading");
-        samplelist.add("Nevermind I remembered go forward");
-        samplelist.add("You have arrived dipshit");
-        samplelist.add("Look forward");
-        samplelist.add("Look back");
-        samplelist.add("Look ahead again");
-        samplelist.add("Fuck okay look at the kiosk I forgot where you are heading");
-        samplelist.add("Nevermind I remembered go forward");
-
-        samplelist.add("You have arrived dipshit");
-        samplelist.add("Look forward");
-        samplelist.add("Look back");
-        samplelist.add("Look ahead again");
-        samplelist.add("Fuck okay look at the kiosk I forgot where you are heading");
-        samplelist.add("Nevermind I remembered go forward");
-        samplelist.add("LASTLINE HEHHEHHEHHE");
-        samplelist.add("Look forward");
-        samplelist.add("Look back");
-        samplelist.add("Look ahead again");
-
-        samplelist.add("HELLO THIS IS TESTING THE MAX LINE LIMIT");
-        samplelist.add("Look forward");
-        samplelist.add("Look forward");
-        samplelist.add("Look forward");
-        samplelist.add("Look forward");
-        samplelist.add("Look forward");
-        samplelist.add("LAST LINE AGAIN");
-        samplelist.add("Look forward");
-        samplelist.add("Look forward");
-        samplelist.add("Look forward");
-
-        samplelist.add("Look forward");
-        samplelist.add("Look forward");
-        samplelist.add("LAST LINE AGAIN");
-
-        try{
-            //gen.writeQRList(samplelist, "directions");
-            //gen.writeQRCode("OwO what's this?*notices your QR code*", "NathanSiegel");
-            //gen.writeQRCode("( ͡° ͜ʖ ͡°)", "lenny");
-            gen.writeQRCode("https://www.google.com/search?q=puppy&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiwhKK62_TXAhXFNSYKHf9oCZ4Q_AUICigB&biw=1920&bih=990", "kylerEllo");
-        }
-        catch (NonValidQRCodeMessageException e){
-            System.out.println("Fix it :(");
-        }
-    }
+//    public static void main(String[] args){
+//        QRCodeGenerator gen = new QRCodeGenerator();
+//        ArrayList<String> samplelist = new ArrayList<>();
+//        //Go straight from Retail C001L1, Take a right at Hallway C009L1, Go down Elevator KL1 until floor L2, Exit Elevator KL2 and
+//        //towards Lab C002L2, Take a right at Lab C002L2, Continue straight past  Service C001L2, Stop at Restroom C002L2]
+//        samplelist.add("Go straight from Retail C001L1");
+//        samplelist.add("Take a right at Hallway C009L1");
+//        samplelist.add("Go down Elevator KL1 until floor L2");
+//        samplelist.add("Exit Elevator KL2 and continue towards Lab C002L2");
+//        samplelist.add("Take a right at Lab C002L2");
+//        samplelist.add("Continue straight past  Service C001L2");
+//        samplelist.add("Stop at Restroom C002L2");
+//
+//        samplelist.add("Look forward");
+//        samplelist.add("Look back");
+//        samplelist.add("Look ahead again");
+//        samplelist.add("Fuck okay look at the kiosk I forgot where you are heading");
+//        samplelist.add("Nevermind I remembered go forward");
+//        samplelist.add("You have arrived dipshit");
+//        samplelist.add("Look forward");
+//        samplelist.add("Look back");
+//        samplelist.add("Look ahea again");
+//        samplelist.add("Fuck okay look at the kiosk I forgot where you are heading");
+//        samplelist.add("Nevermind I remembered go forward");
+//
+//        samplelist.add("You have arrived dipshit");
+//        samplelist.add("Look forward");
+//        samplelist.add("Look back");
+//        samplelist.add("Look ahead again");
+//        samplelist.add("Fuck okay look at the kiosk I forgot where you are heading");
+//        samplelist.add("Nevermind I remembered go forward");
+//        samplelist.add("You have arrived dipshit");
+//        samplelist.add("Look forward");
+//        samplelist.add("Look back");
+//        samplelist.add("Look ahead again");
+//
+//        samplelist.add("Fuck okay look at the kiosk I forgot where you are heading");
+//        samplelist.add("Nevermind I remembered go forward");
+//        samplelist.add("LASTLINE HEHHEHHEHHE");
+//        samplelist.add("Look forward");
+//        samplelist.add("Look back");
+//        samplelist.add("Look ahead again");
+//        samplelist.add("HELLO THIS IS TESTING THE MAX LINE LIMIT");
+//        samplelist.add("Look forward");
+//        samplelist.add("Look forward");
+//        samplelist.add("Look forward");
+//
+//        samplelist.add("Look forward");
+//        samplelist.add("Look forward");
+//        samplelist.add("LAST LINE AGAIN - This is the end of 1");
+//        samplelist.add("Look forward - beginning of 2");
+//        samplelist.add("Look back");
+//        samplelist.add("Look ahead again");
+//        samplelist.add("Fuck okay look at the kiosk I forgot where you are heading");
+//        samplelist.add("Nevermind I remembered go forward");
+//        samplelist.add("You have arrived dipshit");
+//        samplelist.add("Look forward");
+//
+//        samplelist.add("Look back");
+//        samplelist.add("Look ahead again");
+//        samplelist.add("Fuck okay look at the kiosk I forgot where you are heading");
+//        samplelist.add("Nevermind I remembered go forward");
+//        samplelist.add("You have arrived dipshit");
+//        samplelist.add("Look forward");
+//        samplelist.add("Look back");
+//        samplelist.add("Look ahead again");
+//        samplelist.add("Fuck okay look at the kiosk I forgot where you are heading");
+//        samplelist.add("Nevermind I remembered go forward");
+//
+//        samplelist.add("You have arrived dipshit");
+//        samplelist.add("Look forward");
+//        samplelist.add("Look back");
+//        samplelist.add("Look ahead again");
+//        samplelist.add("Fuck okay look at the kiosk I forgot where you are heading");
+//        samplelist.add("Nevermind I remembered go forward");
+//        samplelist.add("LASTLINE HEHHEHHEHHE");
+//        samplelist.add("Look forward");
+//        samplelist.add("Look back");
+//        samplelist.add("Look ahead again");
+//
+//        samplelist.add("HELLO THIS IS TESTING THE MAX LINE LIMIT");
+//        samplelist.add("Look forward");
+//        samplelist.add("Look forward");
+//        samplelist.add("Look forward");
+//        samplelist.add("Look forward");
+//        samplelist.add("Look forward");
+//        samplelist.add("LAST LINE AGAIN");
+//        samplelist.add("Look forward");
+//        samplelist.add("Look forward");
+//        samplelist.add("Look forward");
+//
+//        samplelist.add("Look forward");
+//        samplelist.add("Look forward");
+//        samplelist.add("LAST LINE AGAIN");
+//
+//        try{
+//            //gen.writeQRList(samplelist, "directions");
+//            //gen.writeQRCode("OwO what's this?*notices your QR code*", "NathanSiegel");
+//            //gen.writeQRCode("( ͡° ͜ʖ ͡°)", "lenny");
+//            gen.writeQRCode("https://www.google.com/search?q=puppy&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiwhKK62_TXAhXFNSYKHf9oCZ4Q_AUICigB&biw=1920&bih=990", "kylerEllo");
+//        }
+//        catch (NonValidQRCodeMessageException e){
+//            System.out.println("Fix it :(");
+//        }
+//    }
 
     /////////////////////
     //  Helpers Below  //

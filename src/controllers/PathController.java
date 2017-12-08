@@ -540,7 +540,7 @@ public class PathController implements ControllableScreen, Observer{
                 System.out.println("Waiting on qr");
             }
             File f = new File("/image/qr/jpg");
-            qrImageView.setImage(new Image("file:src/images/qr.jpg"));
+            qrImageView.setImage(new Image("images/qr.jpg"));
         }
         catch (NonValidQRCodeMessageException e){
             System.out.println("QR too long");

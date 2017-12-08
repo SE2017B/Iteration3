@@ -11,22 +11,16 @@ package controllers;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXSlider;
 import com.jfoenix.controls.JFXTextArea;
-import com.jfoenix.skins.JFXSliderSkin;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
 
 import java.util.ArrayList;
 
 public class FeedbackController implements ControllableScreen{
-    public FeedbackController(){
-        this.status = 0;
-        this.ImageMap = new ArrayList<>();
-        this.descriptions = new ArrayList<>();
-    }
+
 
     private ScreenController parent;
     private int status;
@@ -45,6 +39,12 @@ public class FeedbackController implements ControllableScreen{
     private JFXButton Next;
     @FXML
     private JFXButton Previous;
+
+    public FeedbackController(){
+        this.status = 0;
+        this.ImageMap = new ArrayList<>();
+        this.descriptions = new ArrayList<>();
+    }
 
     @Override
     public void init() {
@@ -65,7 +65,7 @@ public class FeedbackController implements ControllableScreen{
 
     @Override
     public void onShow() {
-        starSlider.setValue(0.0);
+        starSlider.setValue(0);
         this.status = 0;
         populateLists();
     }
@@ -80,7 +80,10 @@ public class FeedbackController implements ControllableScreen{
         parent.setScreen(ScreenController.MainID,"LEFT");
     }
 
-    public void enterPressed(ActionEvent e) {}
+
+    public void enterPressed(ActionEvent e) {
+
+    }
 
     //---------------------FEEDBACK TAB--------------------//
     public void pressNext(){
@@ -132,21 +135,21 @@ public class FeedbackController implements ControllableScreen{
                 "mouse or clicking and dragging. Along the bottom of the map includes an emergency button (emergency) " +
                 "that shows the nearest exit along with buttons to switch between floors of the hospital.");
         this.descriptions.add(main);
-        this.ImageMap.add("images/MainScreenPicture.png");
+        this.ImageMap.add("MainScreenPicture.png");
         CustomPair filter = new CustomPair("Filter on Main Menu", "When the filter button is clicked, it displays multiple buttons " +
                 "of popular areas (bathrooms, elevators, etc.) that people would " +
                 "want to be able to see. Therefore, when this button is clicked (for " +
                 "example in this picture bathroom was clicked), circles that grow and shrink " +
                 "appear for a temporary amount of time at these areas to catch the users attention.");
         this.descriptions.add(filter);
-        this.ImageMap.add("images/FilterScreenPictureThis.png");
+        this.ImageMap.add("FilterScreenPictureThis.png");
         CustomPair FindNearest = new CustomPair("Find Nearest", "When the find nearest button is pressed, " +
                 "it displays multiple buttons of popular areas (bathrooms, elevators, etc.) that " +
                 "people would want to be able to see. Therefore, when this button is clicked (for " +
                 "example in this picture bathroom was clicked), a circle appears that grows and shrinks " +
                 "in size at the bathroom closest to the kiosk location.");
         this.descriptions.add(FindNearest);
-        this.ImageMap.add("images/FindNearestPictureThis.png");
+        this.ImageMap.add("FindNearestPictureThis.png");
         CustomPair Feedback = new CustomPair("Feedback Menu", "When the question mark button is pressed below the " +
                 "login on the main screen, it takes you to the pane seen in this image. Here, feedback " +
                 "will be shown first and the user can tab between feedback, help, and about. Feedback " +
@@ -154,7 +157,7 @@ public class FeedbackController implements ControllableScreen{
                 "comments. The user can either press enter on the screen or press enter on the keyboard " +
                 "to save his/her feedback.");
         this.descriptions.add(Feedback);
-        this.ImageMap.add("images/FeedbackPicture.png");
+        this.ImageMap.add("FeedbackPicture.png");
         CustomPair SearchText = new CustomPair("Searching by Text", "If the directions button is press on the main screen, " +
                 "the user will then be brought to this screen to find directions from one place to another. " +
                 "The user is still able to zoom / click and drag the map to navigate and can also see " +
@@ -163,13 +166,13 @@ public class FeedbackController implements ControllableScreen{
                 "where the user can start typing to find a place or can click the arrow to see all of the available places. " +
                 "Once the start node and end node are selected, the user can then click Go! to find the path.");
         this.descriptions.add(SearchText);
-        this.ImageMap.add("images/SearchByTextPicture.png");
+        this.ImageMap.add("SearchByTextPicture.png");
         CustomPair SearchByType = new CustomPair("Searching by Type", "When the user clicks search by type, another search method is seen along the top. " +
                 "A user can select the type of place, then the floor number, and then the " +
                 "available areas that match the type and floor number selected. " +
                 "Once the start and end areas are selected, pressing Go! will find the path.");
         this.descriptions.add(SearchByType);
-        this.ImageMap.add("images/SearchByTypePicture.png");
+        this.ImageMap.add("SearchByTypePicture.png");
         CustomPair NodeToNode = new CustomPair("Directions Menu", "When Go! is clicked, a path is found based on the start and end areas." +
                 " A visual line with an animated arrow on the floor the path starts on is displayed, " +
                 "and leads the user to the destination if it is on the same floor or stairs/elevators " +
@@ -180,7 +183,7 @@ public class FeedbackController implements ControllableScreen{
                 "the user can press the return button which reverses the path, making the starting area " +
                 "the end area and vice versa.");
         this.descriptions.add(NodeToNode);
-        this.ImageMap.add("images/DirectionsPicture.png");
+        this.ImageMap.add("DirectionsPicture.png");
     }
 
     class CustomPair{
